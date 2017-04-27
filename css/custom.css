@@ -43,7 +43,10 @@ padding-top:2px;
  select#sel1.selectpicker.semester{
 margin-bottom:20px;
  }
- }
+ button.btn.btn-danger.hvr-glow{
+ margin-left:15px;
+ } 
+}
  
  
  select#sel1.selectpicker.semester{
