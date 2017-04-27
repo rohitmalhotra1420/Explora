@@ -1,0 +1,294 @@
+<!Doctype html>
+<head>
+<title>Quora Website</title>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet" type="text/css">
+<link href="js/custom.js" rel="stylesheet">
+
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+<link href="css/hover-min.css" rel="stylesheet" type="text/css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <SCRIPT type="text/javascript" src="js/api.js"></SCRIPT>
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <SCRIPT type="text/javascript" src="js/pace.min.js"></SCRIPT>
+	<link href="css/center-radar.css" rel="stylesheet" type="text/css">
+<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
+ <style>
+ 
+ body{
+ position:relative;
+ }
+ @media(max-width:500px){
+ 
+select#sel2.selectpicker.semester{
+margin-left:15px;
+margin-top:15px;
+}
+ }
+
+ </style>
+ 
+ 
+ 
+ 
+</head>
+
+<body onload="myFunction()">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    	  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <div class="navbar-brand navbar-brand-centered  " style="font-size:35px;font-family: 'Josefin Sans', sans-serif;width:180px;color:#d9534f;">EXPLORA</div>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#" style="padding-top:5px;padding-bottom:0px;"><img src='img/qm2.png' class="hvr-grow" style="height:40px;width:50px;border-radius:10px;"></a></li>
+
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+<form class="navbar-form navbar-left" style="padding-right:10px;" role="search">
+    <div class="form-group" style="display:inline;position:relative;">
+	<span class="icon"><i class="fa fa-search hvr-pulse"  style="position:absolute;padding-top:9px;padding-left:8px;z-index:1;"></i></span>
+        <input type="text" class="form-control hvr-glow"style="padding-left:25px;" placeholder="Search">           
+
+		</div>
+
+</form>
+<a href="search.html"><button class="btn btn-danger hvr-glow"style="margin-top:8px;">Search</button></a>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+
+		
+		
+		
+		
+		
+		<!--nav pills-->
+
+
+<div class="container-fluid" style="margin-top:70px;">
+  
+  
+  <div class="btn-group btn-group-justified glow">
+    <a data-toggle="pill"  href="#recent" class="btn btn-danger hvr-float-shadow" style="font-size:15px;color:white;font-family:'Roboto', sans-serif;">Recent</a>
+    <a data-toggle="pill" href="#trending" class="btn btn-danger hvr-float-shadow"style="font-size:15px;color:white;font-family:'Roboto', sans-serif;">Trending</a>
+    <a data-toggle="pill"  href="#popular" class="btn btn-danger hvr-float-shadow"style="font-size:15px;color:white;font-family:'Roboto', sans-serif;">Popular</a>
+  </div>
+
+  
+  <div class="row"style="margin-top:30px;">
+  <div class="col-md-10">
+
+<button type="button" class="btn btn-default hvr-float shadow"id="myBtn"style="border-color: #d9534f;border-width:2px;font-size:18px;">Post Question</button>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;height:146px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <img src='img/qm2.png' class="hvr-grow" style="height:40px;width:50px;border-radius:10px;"><br />
+		  <h4 id="h4">Post Question</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+             
+              <form class="cmxform" id="commentForm" method="get" action="">
+                <fieldset>
+                  <ul style="padding-left: 0px; list-style:none;">
+                    <li style="margin-bottom:10px;">
+                      <label for="Nametext" class="control-label"><span class="glyphicon glyphicon-user"></span></i>  Username:</label>
+                      <input type="text" class="form-control" id="Nametext" placeholder="Enter Username" required="required">
+                   </li>
+                   <li style="margin-bottom:15px;">
+                     <label for="Emailtext" class="control-label"><i class="fa fa-envelope" aria-hidden="true"></i>  Email-Id:</label>
+                     <input type="text" class="form-control" id="Emailtext" placeholder="Email-Address" required="required">
+                   </li>
+                   <li>
+                     <div class="row" style="margin-bottom:10px;">
+                       <div class="col-md-6">
+                         <section class="semester">
+                           <select id="sel1" class="selectpicker semester" data-style="btn-primary">
+                           <option hidden>Select Subject</option>
+                           </select>
+                       </section>
+                   </div>
+
+                   <div class="col-md-6">
+                     <section class="semester">
+                       <select id="sel2" class="selectpicker semester" data-style="btn-primary" style="padding:10px;border-radius: 5px;border-color: #337ab7;border-width: 2px;">
+                       <option hidden>Select Semester</option>
+                       <option value="1">1</option>
+                       <option value="2">2</option>
+                       <option value="3">3</option>
+                       <option value="4">4</option>
+                       <option value="5">5</option>
+                       <option value="6">6</option>
+                       <option value="7">7</option>
+                       <option value="8">8</option>
+                       </select>
+                   </section>
+               </div>
+                </div>
+                     </li>
+
+                   <li style="padding-bottom:10px;">
+                     <label for="tagstext" class="control-label">Related Tags:</label>
+                     <input type="text" class="form-control" id="tagstext" required>
+                   </li>
+                   <li><label for="messagetext" class="control-label">Type Your Question Here:</label>
+                   <textarea class="form-control" id="messagetext" required></textarea></li>
+                   <hr>
+    <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>               
+			   <button class="submit btn btn-primary pull-right" style="margin-right:5px;"id="submit_form" onclick ="return postfunction()">Post</button>
+               </ul>
+             </fieldset>
+            </form>
+          </div>
+      
+    </div>
+  </div> 
+</div>
+ 
+  </div>
+  <div class="col-md-2">
+  <section class="semester">
+                       <select id="sel2" class="selectpicker semester" data-style="btn-primary" style="padding:10px;border-radius: 5px;border-color: #d9534f;border-width: 2px;">
+                       <option hidden>Select Semester</option>
+                       <option value="1">1</option>
+                       <option value="2">2</option>
+                       <option value="3">3</option>
+                       <option value="4">4</option>
+                       <option value="5">5</option>
+                       <option value="6">6</option>
+                       <option value="7">7</option>
+                       <option value="8">8</option>
+                       </select>
+                   </section>
+  </div>
+  </div>
+  
+  <hr/>
+  <div class="tab-content">
+    <div id="recent" class="tab-pane fade in active">
+     </div>
+	<div id="trending" class="tab-pane fade">
+   </div>
+    <div id="popular" class="tab-pane fade">
+ </div>
+   </div>
+<center>
+   <div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a class="active" href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+</div>
+</center>
+</div>
+
+
+		
+		
+
+		
+		
+		<div class="container">
+  <button type="button" class="chatbox"data-toggle="collapse" data-target="#demo" style="width: 172px;
+    height: 85px;
+    color: #fcf8e3;
+    border-width:0;position:fixed;right:2%;top:35%;
+    background-color: #d9534f;font-size: 30px;">Chat With Us<br /><i class="fa fa-quora" style="font-size:36px"></i></button>
+  <div id="demo" class="collapse">
+<div class="chat_window " style="left:2%;top:10%;position:fixed;"><div class="top_menu"><div class="buttons"><div class="button close"data-toggle="collapse" data-target="#demo"></div><div class="button minimize"data-toggle="collapse" data-target="#demo"></div><div class="button maximize"data-toggle="collapse" data-target="#demo"></div></div><div class="title">Chat</div></div><ul class="messages"></ul><div class="bottom_wrapper clearfix"><div class="message_input_wrapper"><input class="message_input" placeholder="Type your message here..." /></div><div class="send_message"><div class="icon"></div><div class="text">Send</div></div></div></div><div class="message_template"><li class="message"><div class="avatar"></div><div class="text_wrapper"><div class="text"></div></div></li></div>
+
+  </div>
+</div>
+		
+		
+		<div class="container-fluid">
+		<div class="row">
+		<footer class="footer1">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer-desc text-center">
+<img src='img/qm2.png' class="hvr-grow" style="height:40px;width:50px;border-radius:10px;">
+                        <p>
+                            <a href="/" rel="home" title="Super Dev Resources">Explora</a> is a question-and-answer site <br />where questions are asked, answered, edited and<br /> organized by its community of users. <a href="/about/">Learn More</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+
+
+            </div> <!--/.row--> 
+        </div> <!--/.container--> 
+    </div> <!--/.footer-->
+    
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="pull-left"> Copyright © <a href="">Explora</a>.  All right reserved.</div>
+            
+        </div>
+    </div> <!--/.footer-bottom--> 
+</footer>
+</div>		
+		</div>
+		
+		
+		
+		
+		
+
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
+
+  
+
+<script src="js/custom.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>
